@@ -10,7 +10,15 @@ import UIKit
 
 class SolverViewController: UIViewController {
     
-    var buttonValue: Int = 0
+    var colorValue: Int = 0
+    var blank = #imageLiteral(resourceName: "blank-square")
+    var white = #imageLiteral(resourceName: "white-square")
+    var yellow = #imageLiteral(resourceName: "yellow-square")
+    var red = #imageLiteral(resourceName: "red-sqaure")
+    var blue = #imageLiteral(resourceName: "blue-square")
+    var green = #imageLiteral(resourceName: "green-square")
+    var orange = #imageLiteral(resourceName: "orange-square")
+    
     
     @IBOutlet weak var Orange0: UIButton!
     @IBOutlet weak var Orange1: UIButton!
@@ -95,9 +103,24 @@ class SolverViewController: UIViewController {
     
     
    @IBAction func buttonClicked(sender: UIButton) {
-        
     
-        switch buttonValue {
+    if sender.image(for: UIControlState.normal) == blank {
+        colorValue = 1
+    } else if sender.image(for: UIControlState.normal) == white {
+        colorValue = 2
+    } else if sender.image(for: UIControlState.normal) == yellow {
+        colorValue = 3
+    } else if sender.image(for: UIControlState.normal) == red {
+        colorValue = 4
+    } else if sender.image(for: UIControlState.normal) == blue {
+        colorValue = 5
+    } else if sender.image(for: UIControlState.normal) == green {
+        colorValue = 6
+    } else {
+        colorValue = 7
+    }
+    
+        switch colorValue {
         case 1:
             sender.setImage(#imageLiteral(resourceName: "white-square"), for: UIControlState.normal)
         case 2:
@@ -114,8 +137,8 @@ class SolverViewController: UIViewController {
             sender.setImage(#imageLiteral(resourceName: "blank-square"), for: UIControlState.normal)
         }
         
-        if buttonValue > 6 {
-            buttonValue = 0
+        if colorValue > 6 {
+            colorValue = 0
         }
     }
     
@@ -123,9 +146,6 @@ class SolverViewController: UIViewController {
     @IBAction func reset(_ sender: Any) {
         loadView()
     }
-    
-    
-    
     
     
     
