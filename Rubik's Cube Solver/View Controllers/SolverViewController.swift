@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class SolverViewController: UIViewController {
     
@@ -18,6 +19,9 @@ class SolverViewController: UIViewController {
     var blue = #imageLiteral(resourceName: "blue-square")
     var green = #imageLiteral(resourceName: "green-square")
     var orange = #imageLiteral(resourceName: "orange-square")
+    
+    @IBOutlet weak var infoButton: UIButton!
+    
     
     
     @IBOutlet weak var Orange0: UIButton!
