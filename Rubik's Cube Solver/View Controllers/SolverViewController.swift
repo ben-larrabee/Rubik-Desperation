@@ -19,6 +19,7 @@ class SolverViewController: UIViewController {
     var blue = #imageLiteral(resourceName: "blue-square")
     var green = #imageLiteral(resourceName: "green-square")
     var orange = #imageLiteral(resourceName: "orange-square")
+    var faceValue: String = "blank"
     
     @IBOutlet weak var infoButton: UIButton!
     
@@ -106,20 +107,31 @@ class SolverViewController: UIViewController {
     
     
     
+    
+    
+    
+    
    @IBAction func buttonClicked(sender: UIButton) {
     
+
     if sender.image(for: UIControlState.normal) == blank {
         colorValue = 1
+        faceValue = "blank"
     } else if sender.image(for: UIControlState.normal) == white {
         colorValue = 2
+        faceValue = "U"
     } else if sender.image(for: UIControlState.normal) == yellow {
         colorValue = 3
+        faceValue = "D"
     } else if sender.image(for: UIControlState.normal) == red {
         colorValue = 4
+        faceValue = "B"
     } else if sender.image(for: UIControlState.normal) == blue {
         colorValue = 5
+        faceValue = "L"
     } else if sender.image(for: UIControlState.normal) == green {
         colorValue = 6
+        faceValue = "R"
     } else {
         colorValue = 7
     }
@@ -145,6 +157,9 @@ class SolverViewController: UIViewController {
             colorValue = 0
         }
     }
+    
+    
+    
     
     
     @IBAction func reset(_ sender: Any) {
