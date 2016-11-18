@@ -598,7 +598,1081 @@ class SolverViewController: UIViewController {
     }
     
     
+    @IBAction func R1Click(_ sender: Any) {
+        if R1.image(for: UIControlState.normal) == blank {
+            colorValue = 1
+            faceValue = "U"
+            print("U")
+        } else if R1.image(for: UIControlState.normal) == white {
+            colorValue = 2
+            faceValue = "D"
+            print("D")
+        } else if R1.image(for: UIControlState.normal) == yellow {
+            colorValue = 3
+            faceValue = "B"
+            print("B")
+        } else if R1.image(for: UIControlState.normal) == red {
+            colorValue = 4
+            faceValue = "L"
+            print("L")
+        } else if R1.image(for: UIControlState.normal) == blue {
+            colorValue = 5
+            faceValue = "R"
+            print("R")
+        } else if R1.image(for: UIControlState.normal) == green {
+            colorValue = 6
+            faceValue = "F"
+            print("F")
+        } else {
+            colorValue = 7
+            print("Blank")
+        }
+        
+        switch colorValue {
+        case 1:
+            R1.setImage(#imageLiteral(resourceName: "white-square"), for: UIControlState.normal)
+        case 2:
+            R1.setImage(#imageLiteral(resourceName: "yellow-square"), for: UIControlState.normal)
+        case 3:
+            R1.setImage(#imageLiteral(resourceName: "red-sqaure"), for: UIControlState.normal)
+        case 4:
+            R1.setImage(#imageLiteral(resourceName: "blue-square"), for: UIControlState.normal)
+        case 5:
+            R1.setImage(#imageLiteral(resourceName: "green-square"), for: UIControlState.normal)
+        case 6:
+            R1.setImage(#imageLiteral(resourceName: "orange-square"), for: UIControlState.normal)
+        default:
+            R1.setImage(#imageLiteral(resourceName: "blank-square"), for: UIControlState.normal)
+        }
+        
+        if colorValue > 6 {
+            colorValue = 0
+        }
+        r1value = faceValue
+    }
     
+    @IBAction func R2Click(_ sender: Any) {
+        if R2.image(for: UIControlState.normal) == blank {
+            colorValue = 1
+            faceValue = "U"
+            print("U")
+        } else if R2.image(for: UIControlState.normal) == white {
+            colorValue = 2
+            faceValue = "D"
+            print("D")
+        } else if R2.image(for: UIControlState.normal) == yellow {
+            colorValue = 3
+            faceValue = "B"
+            print("B")
+        } else if R2.image(for: UIControlState.normal) == red {
+            colorValue = 4
+            faceValue = "L"
+            print("L")
+        } else if R2.image(for: UIControlState.normal) == blue {
+            colorValue = 5
+            faceValue = "R"
+            print("R")
+        } else if R2.image(for: UIControlState.normal) == green {
+            colorValue = 6
+            faceValue = "F"
+            print("F")
+        } else {
+            colorValue = 7
+            print("Blank")
+        }
+        
+        switch colorValue {
+        case 1:
+            R2.setImage(#imageLiteral(resourceName: "white-square"), for: UIControlState.normal)
+        case 2:
+            R2.setImage(#imageLiteral(resourceName: "yellow-square"), for: UIControlState.normal)
+        case 3:
+            R2.setImage(#imageLiteral(resourceName: "red-sqaure"), for: UIControlState.normal)
+        case 4:
+            R2.setImage(#imageLiteral(resourceName: "blue-square"), for: UIControlState.normal)
+        case 5:
+            R2.setImage(#imageLiteral(resourceName: "green-square"), for: UIControlState.normal)
+        case 6:
+            R2.setImage(#imageLiteral(resourceName: "orange-square"), for: UIControlState.normal)
+        default:
+            R2.setImage(#imageLiteral(resourceName: "blank-square"), for: UIControlState.normal)
+        }
+        
+        if colorValue > 6 {
+            colorValue = 0
+        }
+        r2value = faceValue
+    }
+    
+    @IBAction func R3Click(_ sender: Any) {
+        if R3.image(for: UIControlState.normal) == blank {
+            colorValue = 1
+            faceValue = "U"
+            print("U")
+        } else if R3.image(for: UIControlState.normal) == white {
+            colorValue = 2
+            faceValue = "D"
+            print("D")
+        } else if R3.image(for: UIControlState.normal) == yellow {
+            colorValue = 3
+            faceValue = "B"
+            print("B")
+        } else if R3.image(for: UIControlState.normal) == red {
+            colorValue = 4
+            faceValue = "L"
+            print("L")
+        } else if R3.image(for: UIControlState.normal) == blue {
+            colorValue = 5
+            faceValue = "R"
+            print("R")
+        } else if R3.image(for: UIControlState.normal) == green {
+            colorValue = 6
+            faceValue = "F"
+            print("F")
+        } else {
+            colorValue = 7
+            print("Blank")
+        }
+        
+        switch colorValue {
+        case 1:
+            R3.setImage(#imageLiteral(resourceName: "white-square"), for: UIControlState.normal)
+        case 2:
+            R3.setImage(#imageLiteral(resourceName: "yellow-square"), for: UIControlState.normal)
+        case 3:
+            R3.setImage(#imageLiteral(resourceName: "red-sqaure"), for: UIControlState.normal)
+        case 4:
+            R3.setImage(#imageLiteral(resourceName: "blue-square"), for: UIControlState.normal)
+        case 5:
+            R3.setImage(#imageLiteral(resourceName: "green-square"), for: UIControlState.normal)
+        case 6:
+            R3.setImage(#imageLiteral(resourceName: "orange-square"), for: UIControlState.normal)
+        default:
+            R3.setImage(#imageLiteral(resourceName: "blank-square"), for: UIControlState.normal)
+        }
+        
+        if colorValue > 6 {
+            colorValue = 0
+        }
+        r3value = faceValue
+    }
+    
+    @IBAction func R4Click(_ sender: Any) {
+        if R4.image(for: UIControlState.normal) == blank {
+            colorValue = 1
+            faceValue = "U"
+            print("U")
+        } else if R4.image(for: UIControlState.normal) == white {
+            colorValue = 2
+            faceValue = "D"
+            print("D")
+        } else if R4.image(for: UIControlState.normal) == yellow {
+            colorValue = 3
+            faceValue = "B"
+            print("B")
+        } else if R4.image(for: UIControlState.normal) == red {
+            colorValue = 4
+            faceValue = "L"
+            print("L")
+        } else if R4.image(for: UIControlState.normal) == blue {
+            colorValue = 5
+            faceValue = "R"
+            print("R")
+        } else if R4.image(for: UIControlState.normal) == green {
+            colorValue = 6
+            faceValue = "F"
+            print("F")
+        } else {
+            colorValue = 7
+            print("Blank")
+        }
+        
+        switch colorValue {
+        case 1:
+            R4.setImage(#imageLiteral(resourceName: "white-square"), for: UIControlState.normal)
+        case 2:
+            R4.setImage(#imageLiteral(resourceName: "yellow-square"), for: UIControlState.normal)
+        case 3:
+            R4.setImage(#imageLiteral(resourceName: "red-sqaure"), for: UIControlState.normal)
+        case 4:
+            R4.setImage(#imageLiteral(resourceName: "blue-square"), for: UIControlState.normal)
+        case 5:
+            R4.setImage(#imageLiteral(resourceName: "green-square"), for: UIControlState.normal)
+        case 6:
+            R4.setImage(#imageLiteral(resourceName: "orange-square"), for: UIControlState.normal)
+        default:
+            R4.setImage(#imageLiteral(resourceName: "blank-square"), for: UIControlState.normal)
+        }
+        
+        if colorValue > 6 {
+            colorValue = 0
+        }
+        r4value = faceValue
+    }
+    
+    @IBAction func R6Click(_ sender: Any) {
+        if R6.image(for: UIControlState.normal) == blank {
+            colorValue = 1
+            faceValue = "U"
+            print("U")
+        } else if R6.image(for: UIControlState.normal) == white {
+            colorValue = 2
+            faceValue = "D"
+            print("D")
+        } else if R6.image(for: UIControlState.normal) == yellow {
+            colorValue = 3
+            faceValue = "B"
+            print("B")
+        } else if R6.image(for: UIControlState.normal) == red {
+            colorValue = 4
+            faceValue = "L"
+            print("L")
+        } else if R6.image(for: UIControlState.normal) == blue {
+            colorValue = 5
+            faceValue = "R"
+            print("R")
+        } else if R6.image(for: UIControlState.normal) == green {
+            colorValue = 6
+            faceValue = "F"
+            print("F")
+        } else {
+            colorValue = 7
+            print("Blank")
+        }
+        
+        switch colorValue {
+        case 1:
+            R6.setImage(#imageLiteral(resourceName: "white-square"), for: UIControlState.normal)
+        case 2:
+            R6.setImage(#imageLiteral(resourceName: "yellow-square"), for: UIControlState.normal)
+        case 3:
+            R6.setImage(#imageLiteral(resourceName: "red-sqaure"), for: UIControlState.normal)
+        case 4:
+            R6.setImage(#imageLiteral(resourceName: "blue-square"), for: UIControlState.normal)
+        case 5:
+            R6.setImage(#imageLiteral(resourceName: "green-square"), for: UIControlState.normal)
+        case 6:
+            R6.setImage(#imageLiteral(resourceName: "orange-square"), for: UIControlState.normal)
+        default:
+            R6.setImage(#imageLiteral(resourceName: "blank-square"), for: UIControlState.normal)
+        }
+        
+        if colorValue > 6 {
+            colorValue = 0
+        }
+        r6value = faceValue
+    }
+    
+    @IBAction func R7Click(_ sender: Any) {
+        if R7.image(for: UIControlState.normal) == blank {
+            colorValue = 1
+            faceValue = "U"
+            print("U")
+        } else if R7.image(for: UIControlState.normal) == white {
+            colorValue = 2
+            faceValue = "D"
+            print("D")
+        } else if R7.image(for: UIControlState.normal) == yellow {
+            colorValue = 3
+            faceValue = "B"
+            print("B")
+        } else if R7.image(for: UIControlState.normal) == red {
+            colorValue = 4
+            faceValue = "L"
+            print("L")
+        } else if R7.image(for: UIControlState.normal) == blue {
+            colorValue = 5
+            faceValue = "R"
+            print("R")
+        } else if R7.image(for: UIControlState.normal) == green {
+            colorValue = 6
+            faceValue = "F"
+            print("F")
+        } else {
+            colorValue = 7
+            print("Blank")
+        }
+        
+        switch colorValue {
+        case 1:
+            R7.setImage(#imageLiteral(resourceName: "white-square"), for: UIControlState.normal)
+        case 2:
+            R7.setImage(#imageLiteral(resourceName: "yellow-square"), for: UIControlState.normal)
+        case 3:
+            R7.setImage(#imageLiteral(resourceName: "red-sqaure"), for: UIControlState.normal)
+        case 4:
+            R7.setImage(#imageLiteral(resourceName: "blue-square"), for: UIControlState.normal)
+        case 5:
+            R7.setImage(#imageLiteral(resourceName: "green-square"), for: UIControlState.normal)
+        case 6:
+            R7.setImage(#imageLiteral(resourceName: "orange-square"), for: UIControlState.normal)
+        default:
+            R7.setImage(#imageLiteral(resourceName: "blank-square"), for: UIControlState.normal)
+        }
+        
+        if colorValue > 6 {
+            colorValue = 0
+        }
+        r7value = faceValue
+    }
+    
+    @IBAction func R8Click(_ sender: Any) {
+        if R8.image(for: UIControlState.normal) == blank {
+            colorValue = 1
+            faceValue = "U"
+            print("U")
+        } else if R8.image(for: UIControlState.normal) == white {
+            colorValue = 2
+            faceValue = "D"
+            print("D")
+        } else if R8.image(for: UIControlState.normal) == yellow {
+            colorValue = 3
+            faceValue = "B"
+            print("B")
+        } else if R8.image(for: UIControlState.normal) == red {
+            colorValue = 4
+            faceValue = "L"
+            print("L")
+        } else if R8.image(for: UIControlState.normal) == blue {
+            colorValue = 5
+            faceValue = "R"
+            print("R")
+        } else if R8.image(for: UIControlState.normal) == green {
+            colorValue = 6
+            faceValue = "F"
+            print("F")
+        } else {
+            colorValue = 7
+            print("Blank")
+        }
+        
+        switch colorValue {
+        case 1:
+            R8.setImage(#imageLiteral(resourceName: "white-square"), for: UIControlState.normal)
+        case 2:
+            R8.setImage(#imageLiteral(resourceName: "yellow-square"), for: UIControlState.normal)
+        case 3:
+            R8.setImage(#imageLiteral(resourceName: "red-sqaure"), for: UIControlState.normal)
+        case 4:
+            R8.setImage(#imageLiteral(resourceName: "blue-square"), for: UIControlState.normal)
+        case 5:
+            R8.setImage(#imageLiteral(resourceName: "green-square"), for: UIControlState.normal)
+        case 6:
+            R8.setImage(#imageLiteral(resourceName: "orange-square"), for: UIControlState.normal)
+        default:
+            R8.setImage(#imageLiteral(resourceName: "blank-square"), for: UIControlState.normal)
+        }
+        
+        if colorValue > 6 {
+            colorValue = 0
+        }
+        r8value = faceValue
+    }
+    
+    @IBAction func R9Click(_ sender: Any) {
+        if R9.image(for: UIControlState.normal) == blank {
+            colorValue = 1
+            faceValue = "U"
+            print("U")
+        } else if R9.image(for: UIControlState.normal) == white {
+            colorValue = 2
+            faceValue = "D"
+            print("D")
+        } else if R9.image(for: UIControlState.normal) == yellow {
+            colorValue = 3
+            faceValue = "B"
+            print("B")
+        } else if R9.image(for: UIControlState.normal) == red {
+            colorValue = 4
+            faceValue = "L"
+            print("L")
+        } else if R9.image(for: UIControlState.normal) == blue {
+            colorValue = 5
+            faceValue = "R"
+            print("R")
+        } else if R9.image(for: UIControlState.normal) == green {
+            colorValue = 6
+            faceValue = "F"
+            print("F")
+        } else {
+            colorValue = 7
+            print("Blank")
+        }
+        
+        switch colorValue {
+        case 1:
+            R9.setImage(#imageLiteral(resourceName: "white-square"), for: UIControlState.normal)
+        case 2:
+            R9.setImage(#imageLiteral(resourceName: "yellow-square"), for: UIControlState.normal)
+        case 3:
+            R9.setImage(#imageLiteral(resourceName: "red-sqaure"), for: UIControlState.normal)
+        case 4:
+            R9.setImage(#imageLiteral(resourceName: "blue-square"), for: UIControlState.normal)
+        case 5:
+            R9.setImage(#imageLiteral(resourceName: "green-square"), for: UIControlState.normal)
+        case 6:
+            R9.setImage(#imageLiteral(resourceName: "orange-square"), for: UIControlState.normal)
+        default:
+            R9.setImage(#imageLiteral(resourceName: "blank-square"), for: UIControlState.normal)
+        }
+        
+        if colorValue > 6 {
+            colorValue = 0
+        }
+        r9value = faceValue
+    }
+   
+    
+    @IBAction func F1Click(_ sender: Any) {
+        if F1.image(for: UIControlState.normal) == blank {
+            colorValue = 1
+            faceValue = "U"
+            print("U")
+        } else if F1.image(for: UIControlState.normal) == white {
+            colorValue = 2
+            faceValue = "D"
+            print("D")
+        } else if F1.image(for: UIControlState.normal) == yellow {
+            colorValue = 3
+            faceValue = "B"
+            print("B")
+        } else if F1.image(for: UIControlState.normal) == red {
+            colorValue = 4
+            faceValue = "L"
+            print("L")
+        } else if F1.image(for: UIControlState.normal) == blue {
+            colorValue = 5
+            faceValue = "R"
+            print("R")
+        } else if F1.image(for: UIControlState.normal) == green {
+            colorValue = 6
+            faceValue = "F"
+            print("F")
+        } else {
+            colorValue = 7
+            print("Blank")
+        }
+        
+        switch colorValue {
+        case 1:
+            F1.setImage(#imageLiteral(resourceName: "white-square"), for: UIControlState.normal)
+        case 2:
+            F1.setImage(#imageLiteral(resourceName: "yellow-square"), for: UIControlState.normal)
+        case 3:
+            F1.setImage(#imageLiteral(resourceName: "red-sqaure"), for: UIControlState.normal)
+        case 4:
+            F1.setImage(#imageLiteral(resourceName: "blue-square"), for: UIControlState.normal)
+        case 5:
+            F1.setImage(#imageLiteral(resourceName: "green-square"), for: UIControlState.normal)
+        case 6:
+            F1.setImage(#imageLiteral(resourceName: "orange-square"), for: UIControlState.normal)
+        default:
+            F1.setImage(#imageLiteral(resourceName: "blank-square"), for: UIControlState.normal)
+        }
+        
+        if colorValue > 6 {
+            colorValue = 0
+        }
+        f1value = faceValue
+    }
+    
+    @IBAction func F2Click(_ sender: Any) {
+        if F2.image(for: UIControlState.normal) == blank {
+            colorValue = 1
+            faceValue = "U"
+            print("U")
+        } else if F2.image(for: UIControlState.normal) == white {
+            colorValue = 2
+            faceValue = "D"
+            print("D")
+        } else if F2.image(for: UIControlState.normal) == yellow {
+            colorValue = 3
+            faceValue = "B"
+            print("B")
+        } else if F2.image(for: UIControlState.normal) == red {
+            colorValue = 4
+            faceValue = "L"
+            print("L")
+        } else if F2.image(for: UIControlState.normal) == blue {
+            colorValue = 5
+            faceValue = "R"
+            print("R")
+        } else if F2.image(for: UIControlState.normal) == green {
+            colorValue = 6
+            faceValue = "F"
+            print("F")
+        } else {
+            colorValue = 7
+            print("Blank")
+        }
+        
+        switch colorValue {
+        case 1:
+            F2.setImage(#imageLiteral(resourceName: "white-square"), for: UIControlState.normal)
+        case 2:
+            F2.setImage(#imageLiteral(resourceName: "yellow-square"), for: UIControlState.normal)
+        case 3:
+            F2.setImage(#imageLiteral(resourceName: "red-sqaure"), for: UIControlState.normal)
+        case 4:
+            F2.setImage(#imageLiteral(resourceName: "blue-square"), for: UIControlState.normal)
+        case 5:
+            F2.setImage(#imageLiteral(resourceName: "green-square"), for: UIControlState.normal)
+        case 6:
+            F2.setImage(#imageLiteral(resourceName: "orange-square"), for: UIControlState.normal)
+        default:
+            F2.setImage(#imageLiteral(resourceName: "blank-square"), for: UIControlState.normal)
+        }
+        
+        if colorValue > 6 {
+            colorValue = 0
+        }
+        f2value = faceValue
+    }
+    
+    @IBAction func F3Click(_ sender: Any) {
+        if F3.image(for: UIControlState.normal) == blank {
+            colorValue = 1
+            faceValue = "U"
+            print("U")
+        } else if F3.image(for: UIControlState.normal) == white {
+            colorValue = 2
+            faceValue = "D"
+            print("D")
+        } else if F3.image(for: UIControlState.normal) == yellow {
+            colorValue = 3
+            faceValue = "B"
+            print("B")
+        } else if F3.image(for: UIControlState.normal) == red {
+            colorValue = 4
+            faceValue = "L"
+            print("L")
+        } else if F3.image(for: UIControlState.normal) == blue {
+            colorValue = 5
+            faceValue = "R"
+            print("R")
+        } else if F3.image(for: UIControlState.normal) == green {
+            colorValue = 6
+            faceValue = "F"
+            print("F")
+        } else {
+            colorValue = 7
+            print("Blank")
+        }
+        
+        switch colorValue {
+        case 1:
+            F3.setImage(#imageLiteral(resourceName: "white-square"), for: UIControlState.normal)
+        case 2:
+            F3.setImage(#imageLiteral(resourceName: "yellow-square"), for: UIControlState.normal)
+        case 3:
+            F3.setImage(#imageLiteral(resourceName: "red-sqaure"), for: UIControlState.normal)
+        case 4:
+            F3.setImage(#imageLiteral(resourceName: "blue-square"), for: UIControlState.normal)
+        case 5:
+            F3.setImage(#imageLiteral(resourceName: "green-square"), for: UIControlState.normal)
+        case 6:
+            F3.setImage(#imageLiteral(resourceName: "orange-square"), for: UIControlState.normal)
+        default:
+            F3.setImage(#imageLiteral(resourceName: "blank-square"), for: UIControlState.normal)
+        }
+        
+        if colorValue > 6 {
+            colorValue = 0
+        }
+        f3value = faceValue
+    }
+    
+    @IBAction func F4Click(_ sender: Any) {
+        if F4.image(for: UIControlState.normal) == blank {
+            colorValue = 1
+            faceValue = "U"
+            print("U")
+        } else if F4.image(for: UIControlState.normal) == white {
+            colorValue = 2
+            faceValue = "D"
+            print("D")
+        } else if F4.image(for: UIControlState.normal) == yellow {
+            colorValue = 3
+            faceValue = "B"
+            print("B")
+        } else if F4.image(for: UIControlState.normal) == red {
+            colorValue = 4
+            faceValue = "L"
+            print("L")
+        } else if F4.image(for: UIControlState.normal) == blue {
+            colorValue = 5
+            faceValue = "R"
+            print("R")
+        } else if F4.image(for: UIControlState.normal) == green {
+            colorValue = 6
+            faceValue = "F"
+            print("F")
+        } else {
+            colorValue = 7
+            print("Blank")
+        }
+        
+        switch colorValue {
+        case 1:
+            F4.setImage(#imageLiteral(resourceName: "white-square"), for: UIControlState.normal)
+        case 2:
+            F4.setImage(#imageLiteral(resourceName: "yellow-square"), for: UIControlState.normal)
+        case 3:
+            F4.setImage(#imageLiteral(resourceName: "red-sqaure"), for: UIControlState.normal)
+        case 4:
+            F4.setImage(#imageLiteral(resourceName: "blue-square"), for: UIControlState.normal)
+        case 5:
+            F4.setImage(#imageLiteral(resourceName: "green-square"), for: UIControlState.normal)
+        case 6:
+            F4.setImage(#imageLiteral(resourceName: "orange-square"), for: UIControlState.normal)
+        default:
+            F4.setImage(#imageLiteral(resourceName: "blank-square"), for: UIControlState.normal)
+        }
+        
+        if colorValue > 6 {
+            colorValue = 0
+        }
+        f4value = faceValue
+    }
+    
+    @IBAction func F6Click(_ sender: Any) {
+        if F6.image(for: UIControlState.normal) == blank {
+            colorValue = 1
+            faceValue = "U"
+            print("U")
+        } else if F6.image(for: UIControlState.normal) == white {
+            colorValue = 2
+            faceValue = "D"
+            print("D")
+        } else if F6.image(for: UIControlState.normal) == yellow {
+            colorValue = 3
+            faceValue = "B"
+            print("B")
+        } else if F6.image(for: UIControlState.normal) == red {
+            colorValue = 4
+            faceValue = "L"
+            print("L")
+        } else if F6.image(for: UIControlState.normal) == blue {
+            colorValue = 5
+            faceValue = "R"
+            print("R")
+        } else if F6.image(for: UIControlState.normal) == green {
+            colorValue = 6
+            faceValue = "F"
+            print("F")
+        } else {
+            colorValue = 7
+            print("Blank")
+        }
+        
+        switch colorValue {
+        case 1:
+            F6.setImage(#imageLiteral(resourceName: "white-square"), for: UIControlState.normal)
+        case 2:
+            F6.setImage(#imageLiteral(resourceName: "yellow-square"), for: UIControlState.normal)
+        case 3:
+            F6.setImage(#imageLiteral(resourceName: "red-sqaure"), for: UIControlState.normal)
+        case 4:
+            F6.setImage(#imageLiteral(resourceName: "blue-square"), for: UIControlState.normal)
+        case 5:
+            F6.setImage(#imageLiteral(resourceName: "green-square"), for: UIControlState.normal)
+        case 6:
+            F6.setImage(#imageLiteral(resourceName: "orange-square"), for: UIControlState.normal)
+        default:
+            F6.setImage(#imageLiteral(resourceName: "blank-square"), for: UIControlState.normal)
+        }
+        
+        if colorValue > 6 {
+            colorValue = 0
+        }
+        f6value = faceValue
+    }
+    
+    @IBAction func F7Click(_ sender: Any) {
+        if F7.image(for: UIControlState.normal) == blank {
+            colorValue = 1
+            faceValue = "U"
+            print("U")
+        } else if F7.image(for: UIControlState.normal) == white {
+            colorValue = 2
+            faceValue = "D"
+            print("D")
+        } else if F7.image(for: UIControlState.normal) == yellow {
+            colorValue = 3
+            faceValue = "B"
+            print("B")
+        } else if F7.image(for: UIControlState.normal) == red {
+            colorValue = 4
+            faceValue = "L"
+            print("L")
+        } else if F7.image(for: UIControlState.normal) == blue {
+            colorValue = 5
+            faceValue = "R"
+            print("R")
+        } else if F7.image(for: UIControlState.normal) == green {
+            colorValue = 6
+            faceValue = "F"
+            print("F")
+        } else {
+            colorValue = 7
+            print("Blank")
+        }
+        
+        switch colorValue {
+        case 1:
+            F7.setImage(#imageLiteral(resourceName: "white-square"), for: UIControlState.normal)
+        case 2:
+            F7.setImage(#imageLiteral(resourceName: "yellow-square"), for: UIControlState.normal)
+        case 3:
+            F7.setImage(#imageLiteral(resourceName: "red-sqaure"), for: UIControlState.normal)
+        case 4:
+            F7.setImage(#imageLiteral(resourceName: "blue-square"), for: UIControlState.normal)
+        case 5:
+            F7.setImage(#imageLiteral(resourceName: "green-square"), for: UIControlState.normal)
+        case 6:
+            F7.setImage(#imageLiteral(resourceName: "orange-square"), for: UIControlState.normal)
+        default:
+            F7.setImage(#imageLiteral(resourceName: "blank-square"), for: UIControlState.normal)
+        }
+        
+        if colorValue > 6 {
+            colorValue = 0
+        }
+        f7value = faceValue
+    }
+    
+    @IBAction func F8Click(_ sender: Any) {
+        if F8.image(for: UIControlState.normal) == blank {
+            colorValue = 1
+            faceValue = "U"
+            print("U")
+        } else if F8.image(for: UIControlState.normal) == white {
+            colorValue = 2
+            faceValue = "D"
+            print("D")
+        } else if F8.image(for: UIControlState.normal) == yellow {
+            colorValue = 3
+            faceValue = "B"
+            print("B")
+        } else if F8.image(for: UIControlState.normal) == red {
+            colorValue = 4
+            faceValue = "L"
+            print("L")
+        } else if F8.image(for: UIControlState.normal) == blue {
+            colorValue = 5
+            faceValue = "R"
+            print("R")
+        } else if F8.image(for: UIControlState.normal) == green {
+            colorValue = 6
+            faceValue = "F"
+            print("F")
+        } else {
+            colorValue = 7
+            print("Blank")
+        }
+        
+        switch colorValue {
+        case 1:
+            F8.setImage(#imageLiteral(resourceName: "white-square"), for: UIControlState.normal)
+        case 2:
+            F8.setImage(#imageLiteral(resourceName: "yellow-square"), for: UIControlState.normal)
+        case 3:
+            F8.setImage(#imageLiteral(resourceName: "red-sqaure"), for: UIControlState.normal)
+        case 4:
+            F8.setImage(#imageLiteral(resourceName: "blue-square"), for: UIControlState.normal)
+        case 5:
+            F8.setImage(#imageLiteral(resourceName: "green-square"), for: UIControlState.normal)
+        case 6:
+            F8.setImage(#imageLiteral(resourceName: "orange-square"), for: UIControlState.normal)
+        default:
+            F8.setImage(#imageLiteral(resourceName: "blank-square"), for: UIControlState.normal)
+        }
+        
+        if colorValue > 6 {
+            colorValue = 0
+        }
+        f8value = faceValue
+    }
+    
+    @IBAction func F9Click(_ sender: Any) {
+        if F9.image(for: UIControlState.normal) == blank {
+            colorValue = 1
+            faceValue = "U"
+            print("U")
+        } else if F9.image(for: UIControlState.normal) == white {
+            colorValue = 2
+            faceValue = "D"
+            print("D")
+        } else if F9.image(for: UIControlState.normal) == yellow {
+            colorValue = 3
+            faceValue = "B"
+            print("B")
+        } else if F9.image(for: UIControlState.normal) == red {
+            colorValue = 4
+            faceValue = "L"
+            print("L")
+        } else if F9.image(for: UIControlState.normal) == blue {
+            colorValue = 5
+            faceValue = "R"
+            print("R")
+        } else if F9.image(for: UIControlState.normal) == green {
+            colorValue = 6
+            faceValue = "F"
+            print("F")
+        } else {
+            colorValue = 7
+            print("Blank")
+        }
+        
+        switch colorValue {
+        case 1:
+            F9.setImage(#imageLiteral(resourceName: "white-square"), for: UIControlState.normal)
+        case 2:
+            F9.setImage(#imageLiteral(resourceName: "yellow-square"), for: UIControlState.normal)
+        case 3:
+            F9.setImage(#imageLiteral(resourceName: "red-sqaure"), for: UIControlState.normal)
+        case 4:
+            F9.setImage(#imageLiteral(resourceName: "blue-square"), for: UIControlState.normal)
+        case 5:
+            F9.setImage(#imageLiteral(resourceName: "green-square"), for: UIControlState.normal)
+        case 6:
+            F9.setImage(#imageLiteral(resourceName: "orange-square"), for: UIControlState.normal)
+        default:
+            F9.setImage(#imageLiteral(resourceName: "blank-square"), for: UIControlState.normal)
+        }
+        
+        if colorValue > 6 {
+            colorValue = 0
+        }
+        f9value = faceValue
+    }
+    
+    
+    @IBAction func D1Click(_ sender: Any) {
+        if D1.image(for: UIControlState.normal) == blank {
+            colorValue = 1
+            faceValue = "U"
+            print("U")
+        } else if D1.image(for: UIControlState.normal) == white {
+            colorValue = 2
+            faceValue = "D"
+            print("D")
+        } else if D1.image(for: UIControlState.normal) == yellow {
+            colorValue = 3
+            faceValue = "B"
+            print("B")
+        } else if D1.image(for: UIControlState.normal) == red {
+            colorValue = 4
+            faceValue = "L"
+            print("L")
+        } else if D1.image(for: UIControlState.normal) == blue {
+            colorValue = 5
+            faceValue = "R"
+            print("R")
+        } else if D1.image(for: UIControlState.normal) == green {
+            colorValue = 6
+            faceValue = "F"
+            print("F")
+        } else {
+            colorValue = 7
+            print("Blank")
+        }
+        
+        switch colorValue {
+        case 1:
+            D1.setImage(#imageLiteral(resourceName: "white-square"), for: UIControlState.normal)
+        case 2:
+            D1.setImage(#imageLiteral(resourceName: "yellow-square"), for: UIControlState.normal)
+        case 3:
+            D1.setImage(#imageLiteral(resourceName: "red-sqaure"), for: UIControlState.normal)
+        case 4:
+            D1.setImage(#imageLiteral(resourceName: "blue-square"), for: UIControlState.normal)
+        case 5:
+            D1.setImage(#imageLiteral(resourceName: "green-square"), for: UIControlState.normal)
+        case 6:
+            D1.setImage(#imageLiteral(resourceName: "orange-square"), for: UIControlState.normal)
+        default:
+            D1.setImage(#imageLiteral(resourceName: "blank-square"), for: UIControlState.normal)
+        }
+        
+        if colorValue > 6 {
+            colorValue = 0
+        }
+        d1value = faceValue
+    }
+    
+    @IBAction func D2Click(_ sender: Any) {
+        if D2.image(for: UIControlState.normal) == blank {
+            colorValue = 1
+            faceValue = "U"
+            print("U")
+        } else if D2.image(for: UIControlState.normal) == white {
+            colorValue = 2
+            faceValue = "D"
+            print("D")
+        } else if D2.image(for: UIControlState.normal) == yellow {
+            colorValue = 3
+            faceValue = "B"
+            print("B")
+        } else if D2.image(for: UIControlState.normal) == red {
+            colorValue = 4
+            faceValue = "L"
+            print("L")
+        } else if D2.image(for: UIControlState.normal) == blue {
+            colorValue = 5
+            faceValue = "R"
+            print("R")
+        } else if D2.image(for: UIControlState.normal) == green {
+            colorValue = 6
+            faceValue = "F"
+            print("F")
+        } else {
+            colorValue = 7
+            print("Blank")
+        }
+        
+        switch colorValue {
+        case 1:
+            D2.setImage(#imageLiteral(resourceName: "white-square"), for: UIControlState.normal)
+        case 2:
+            D2.setImage(#imageLiteral(resourceName: "yellow-square"), for: UIControlState.normal)
+        case 3:
+            D2.setImage(#imageLiteral(resourceName: "red-sqaure"), for: UIControlState.normal)
+        case 4:
+            D2.setImage(#imageLiteral(resourceName: "blue-square"), for: UIControlState.normal)
+        case 5:
+            D2.setImage(#imageLiteral(resourceName: "green-square"), for: UIControlState.normal)
+        case 6:
+            D2.setImage(#imageLiteral(resourceName: "orange-square"), for: UIControlState.normal)
+        default:
+            D2.setImage(#imageLiteral(resourceName: "blank-square"), for: UIControlState.normal)
+        }
+        
+        if colorValue > 6 {
+            colorValue = 0
+        }
+        d2value = faceValue
+    }
+    
+   @IBAction func D3Click(_ sender: Any) {
+    if D1.image(for: UIControlState.normal) == blank {
+        colorValue = 1
+        faceValue = "U"
+        print("U")
+    } else if D1.image(for: UIControlState.normal) == white {
+        colorValue = 2
+        faceValue = "D"
+        print("D")
+    } else if D1.image(for: UIControlState.normal) == yellow {
+        colorValue = 3
+        faceValue = "B"
+        print("B")
+    } else if D1.image(for: UIControlState.normal) == red {
+        colorValue = 4
+        faceValue = "L"
+        print("L")
+    } else if D1.image(for: UIControlState.normal) == blue {
+        colorValue = 5
+        faceValue = "R"
+        print("R")
+    } else if D1.image(for: UIControlState.normal) == green {
+        colorValue = 6
+        faceValue = "F"
+        print("F")
+    } else {
+        colorValue = 7
+        print("Blank")
+    }
+    
+    switch colorValue {
+    case 1:
+        D1.setImage(#imageLiteral(resourceName: "white-square"), for: UIControlState.normal)
+    case 2:
+        D1.setImage(#imageLiteral(resourceName: "yellow-square"), for: UIControlState.normal)
+    case 3:
+        D1.setImage(#imageLiteral(resourceName: "red-sqaure"), for: UIControlState.normal)
+    case 4:
+        D1.setImage(#imageLiteral(resourceName: "blue-square"), for: UIControlState.normal)
+    case 5:
+        D1.setImage(#imageLiteral(resourceName: "green-square"), for: UIControlState.normal)
+    case 6:
+        D1.setImage(#imageLiteral(resourceName: "orange-square"), for: UIControlState.normal)
+    default:
+        D1.setImage(#imageLiteral(resourceName: "blank-square"), for: UIControlState.normal)
+    }
+    
+    if colorValue > 6 {
+        colorValue = 0
+    }
+    d1value = faceValue
+    }
+    
+    @IBAction func D4Click(_ sender: Any) {
+    }
+    
+    @IBAction func D6Click(_ sender: Any) {
+    }
+    
+    @IBAction func D7Click(_ sender: Any) {
+    }
+    
+    @IBAction func D8Click(_ sender: Any) {
+    }
+    
+    @IBAction func D9Click(_ sender: Any) {
+    }
+    
+    
+    
+    @IBAction func L1Click(_ sender: Any) {
+    }
+    
+    @IBAction func L2Click(_ sender: Any) {
+    }
+    
+    @IBAction func L3Click(_ sender: Any) {
+    }
+    
+    @IBAction func L4Click(_ sender: Any) {
+    }
+    
+    @IBAction func L6Click(_ sender: Any) {
+    }
+    
+    @IBAction func L7Click(_ sender: Any) {
+    }
+    
+    @IBAction func L8Click(_ sender: Any) {
+    }
+    
+    @IBAction func L9Click(_ sender: Any) {
+    }
+   
+    
+    @IBAction func B1Click(_ sender: Any) {
+    }
+   
+    
+    @IBAction func B2Click(_ sender: Any) {
+    }
+    
+    @IBAction func B3Click(_ sender: Any) {
+    }
+    
+    @IBAction func B4Click(_ sender: Any) {
+    }
+    
+    @IBAction func B6Click(_ sender: Any) {
+    }
+    
+    @IBAction func B7Click(_ sender: Any) {
+    }
+    
+    @IBAction func B8Click(_ sender: Any) {
+    }
+    
+    @IBAction func B9Click(_ sender: Any) {
+    }
     
     
     
