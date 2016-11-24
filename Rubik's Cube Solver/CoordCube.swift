@@ -135,7 +135,7 @@ class CoordCube {
     lazy var FRtoBR_Move: [[CShort]] = { [unowned self] in
         
     let cubieCube = CubieCube()
-    let array = [[CShort]] = [[]]
+    let array: [[CShort]] = [[]]
         
         for i in 0..<N_FRtoBR {
             cubieCube.setFRtoBR = i
@@ -155,19 +155,7 @@ class CoordCube {
 }()
 
 
-//    static {
-//    CubieCube a = new CubieCube();
-//    for (short i = 0; i < N_FRtoBR; i++) {
-//    a.setFRtoBR(i);
-//    for (int j = 0; j < 6; j++) {
-//				for (int k = 0; k < 3; k++) {
-//    a.edgeMultiply(CubieCube.moveCube[j]);
-//    FRtoBR_Move[i][3 * j + k] = a.getFRtoBR();
-//				}
-//				a.edgeMultiply(CubieCube.moveCube[j]);
-//    }
-//    }
-//    }
+
     
     // *******************************************Phase 1 and 2 movetable************************************************
     
@@ -176,21 +164,28 @@ class CoordCube {
     // URFtoDLF < 20160 in phase 1
     // URFtoDLF < 20160 in phase 2
     // URFtoDLF = 0 for solved cube.
-    let URFtoDLF_Move: [[CShort]] = [[]]
-//    static short[][] URFtoDLF_Move = new short[N_URFtoDLF][N_MOVE];
-    static {
-    CubieCube a = new CubieCube();
-    for (short i = 0; i < N_URFtoDLF; i++) {
-    a.setURFtoDLF(i);
-    for (int j = 0; j < 6; j++) {
-				for (int k = 0; k < 3; k++) {
-    a.cornerMultiply(CubieCube.moveCube[j]);
-    URFtoDLF_Move[i][3 * j + k] = a.getURFtoDLF();
-				}
-				a.cornerMultiply(CubieCube.moveCube[j]);
-    }
-    }
-    }
+    
+    lazy var URFtoDLF_Move: [[CShort]] = { [unowned self] in
+        
+    let cubieCube = CubieCube()
+    let array: [[CShort]] = [[]]
+        
+        for i in 0..<N_URFtoDLF {
+            cubieCube.setURFtoDLF = i
+            
+            for j in 0..<6 {
+                for k in 0..3 {
+                    cubieCube.cornerMultiply(cubieCube.moveCube[j])
+                    array[i][3 * j + k] = cubieCube.getURFtoDLF()
+                }
+                
+                cubieCube.cornerMultiply(CubieCube.moveCube[j])
+            }
+        }
+        
+        return array
+    }()
+    
     
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // Move table for the permutation of six U-face and D-face edges in phase2. The positions of the DL and DB edges are
@@ -198,237 +193,281 @@ class CoordCube {
     // URtoDF < 665280 in phase 1
     // URtoDF < 20160 in phase 2
     // URtoDF = 0 for solved cube.
-    let URtoDF_Move: [[CShort]] = [[]]
-//    static short[][] URtoDF_Move = new short[N_URtoDF][N_MOVE];
-    static {
-    CubieCube a = new CubieCube();
-    for (short i = 0; i < N_URtoDF; i++) {
-    a.setURtoDF(i);
-    for (int j = 0; j < 6; j++) {
-				for (int k = 0; k < 3; k++) {
-    a.edgeMultiply(CubieCube.moveCube[j]);
-    URtoDF_Move[i][3 * j + k] = (short) a.getURtoDF();
-    // Table values are only valid for phase 2 moves!
-    // For phase 1 moves, casting to short is not possible.
-				}
-				a.edgeMultiply(CubieCube.moveCube[j]);
-    }
-    }
-    }
+    
+    
+    lazy var URtoDF_Move: [[CShort]] = { [unowned self] in
+        
+        let cubieCube = CubieCube()
+        let array: [[CShort]] = [[]]
+        
+        for i in 0..<N_URtoDF {
+            cubieCube.setURtoDF = i
+            for j in 0..<6 {
+                for k in 0..3 {
+                    cubieCube.edgeMultiply(cubieCube.moveCube[j])
+                    array[i][3 * j + k] = cubieCube.getURtoDF()
+                }
+                
+                cubieCube.edgeMultiply(CubieCube.moveCube[j])
+            }
+        }
+        
+        return array
+        }()
+    
     
     // **************************helper move tables to compute URtoDF for the beginning of phase2************************
     
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    // Move table for the three edges UR,UF and UL in phase1.
-    let URtoUL_Move: [[CShort]] = [[]]
-//    static short[][] URtoUL_Move = new short[N_URtoUL][N_MOVE];
-    static {
-    CubieCube a = new CubieCube();
-    for (short i = 0; i < N_URtoUL; i++) {
-    a.setURtoUL(i);
-    for (int j = 0; j < 6; j++) {
-				for (int k = 0; k < 3; k++) {
-    a.edgeMultiply(CubieCube.moveCube[j]);
-    URtoUL_Move[i][3 * j + k] = a.getURtoUL();
-				}
-				a.edgeMultiply(CubieCube.moveCube[j]);
-    }
-    }
-    }
+    
+    lazy var URtoUL_Move: [[CShort]] = { [unowned self] in
+        
+        let cubieCube = CubieCube()
+        let array: [[CShort]] = [[]]
+        
+        for i in 0..<N_URtoUL {
+            cubieCube.setURtoUL = i
+            for j in 0..<6 {
+                for k in 0..3 {
+                    cubieCube.edgeMultiply(cubieCube.moveCube[j])
+                    array[i][3 * j + k] = cubieCube.getURtoUL()
+                }
+                
+                cubieCube.edgeMultiply(CubieCube.moveCube[j])
+            }
+        }
+        
+        return array
+        }()
+
     
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    // Move table for the three edges UB,DR and DF in phase1.
-    let UBtoDF_Move: [[CShort]] = [[]]
-//    static short[][] UBtoDF_Move = new short[N_UBtoDF][N_MOVE];
-    static {
-    CubieCube a = new CubieCube();
-    for (short i = 0; i < N_UBtoDF; i++) {
-    a.setUBtoDF(i);
-    for (int j = 0; j < 6; j++) {
-				for (int k = 0; k < 3; k++) {
-    a.edgeMultiply(CubieCube.moveCube[j]);
-    UBtoDF_Move[i][3 * j + k] = a.getUBtoDF();
-				}
-				a.edgeMultiply(CubieCube.moveCube[j]);
-    }
-    }
-    }
+    
+    lazy var UBtoDF_Move: [[CShort]] = { [unowned self] in
+        
+        let cubieCube = CubieCube()
+        let array: [[CShort]] = [[]]
+        
+        for i in 0..<N_UBtoDF {
+            cubieCube.setUBtoDF = i
+            for j in 0..<6 {
+                for k in 0..3 {
+                    cubieCube.edgeMultiply(cubieCube.moveCube[j])
+                    array[i][3 * j + k] = cubieCube.getUBtoDF()
+                }
+                
+                cubieCube.edgeMultiply(CubieCube.moveCube[j])
+            }
+        }
+        
+        return array
+        }()
+    
+
     
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
     // Table to merge the coordinates of the UR,UF,UL and UB,DR,DF edges at the beginning of phase2
-    let MergeURtoULandUBtoDF: [[CShort]] = [[]]
-//    static short[][] MergeURtoULandUBtoDF = new short[336][336];
-    static {
-    // for i, j <336 the six edges UR,UF,UL,UB,DR,DF are not in the
-    // UD-slice and the index is <20160
-    for (short uRtoUL = 0; uRtoUL < 336; uRtoUL++) {
-    for (short uBtoDF = 0; uBtoDF < 336; uBtoDF++) {
-				MergeURtoULandUBtoDF[uRtoUL][uBtoDF] = (short) CubieCube.getURtoDF(uRtoUL, uBtoDF);
-    }
-    }
-    }
+
     
+    lazy var MergeURtoULandUBtoDF: [[CShort]] = { [unowned self] in
+    let array: [[CShort]] = [[]]
+        
+        for uRtoUL in 0..<336 {
+            for uBtoDF in 0..<336 {
+                array[uRtoUL][uBtoDF] = CubieCube.getURtoDF(uRtoUL, uBtoDF)
+            }
+        }
+        return array
+    }()
+    
+    
+    
+    
+    
+    
+    
+   
     // ****************************************Pruning tables for the search*********************************************
     
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // Pruning table for the permutation of the corners and the UD-slice edges in phase2.
     // The pruning table entries give a lower estimation for the number of moves to reach the solved cube.
-    static byte[] Slice_URFtoDLF_Parity_Prun = new byte[N_SLICE2 * N_URFtoDLF * N_PARITY / 2];
-    static {
-    for (int i = 0; i < N_SLICE2 * N_URFtoDLF * N_PARITY / 2; i++)
-    Slice_URFtoDLF_Parity_Prun[i] = -1;
-    int depth = 0;
-    setPruning(Slice_URFtoDLF_Parity_Prun, 0, (byte) 0);
-    int done = 1;
-    while (done != N_SLICE2 * N_URFtoDLF * N_PARITY) {
-    for (int i = 0; i < N_SLICE2 * N_URFtoDLF * N_PARITY; i++) {
-				int parity = i % 2;
-				int URFtoDLF = (i / 2) / N_SLICE2;
-				int slice = (i / 2) % N_SLICE2;
-				if (getPruning(Slice_URFtoDLF_Parity_Prun, i) == depth) {
-    for (int j = 0; j < 18; j++) {
-    switch (j) {
-    case 3:
-    case 5:
-    case 6:
-    case 8:
-    case 12:
-    case 14:
-    case 15:
-    case 17:
-    continue;
-    default:
-    int newSlice = FRtoBR_Move[slice][j];
-    int newURFtoDLF = URFtoDLF_Move[URFtoDLF][j];
-    int newParity = parityMove[parity][j];
-    if (getPruning(Slice_URFtoDLF_Parity_Prun, (N_SLICE2 * newURFtoDLF + newSlice) * 2 + newParity) == 0x0f) {
-    setPruning(Slice_URFtoDLF_Parity_Prun, (N_SLICE2 * newURFtoDLF + newSlice) * 2 + newParity,
-    (byte) (depth + 1));
-    done++;
-    }
-    }
-    }
-				}
-    }
-    depth++;
-    }
-    }
+   
+    
+    
+    lazy var Slice_URFtoDLF_Parity_Prun = { [unowned self] -> [Int] in
+    let array: [Int] = []
+        
+        for i in 0..<N_SLICE2 * N_URFtoDLF * N_PARITY / 2 {
+            array[i] = -1
+            var depth = 0
+            setPruning(array, 0, 0)
+            var done = 1
+            
+            while done != N_SLICE2 * N_URFtoDLF * N_PARITY {
+                for i in 0..<N_SLICE2 * N_URFtoDLF * N_PARITY {
+                    var parity: Int = i % 2
+                    var URFtoDLF: Int = (i / 2) / N_SLICE2
+                    var slice: Int = (i / 2) % N_SLICE2
+                    if (getPruning(array, i) == depth) {
+                        for j in 0..<18 {
+                            switch j {
+                            case 3, 5, 6, 8, 12, 14, 15, 17:
+                                continue;
+                            default:
+                                var newSlice: Int = FRtoBR_Move[slice][j]
+                                var newURFtoDLF: Int = URFtoDLF_Move[URFtoDLF][j]
+                                var newParity: Int = parityMove[parity][j]
+                                if (getPruning(array, (N_SLICE2 * newURFtoDLF + newSlice) * 2 + newParity) == 0x0f) {
+                                    setPruning(array, (N_SLICE2 * newURFtoDLF + newSlice) * 2 + newParity,
+                                    (depth + 1))
+                                    done += 1
+                                }
+                            }
+                        }
+                    }
+                }
+                depth += 1
+            }
+        }
+        return array
+
+    }()
+    
+    
     
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // Pruning table for the permutation of the edges in phase2.
     // The pruning table entries give a lower estimation for the number of moves to reach the solved cube.
-    static byte[] Slice_URtoDF_Parity_Prun = new byte[N_SLICE2 * N_URtoDF * N_PARITY / 2];
-    static {
-    for (int i = 0; i < N_SLICE2 * N_URtoDF * N_PARITY / 2; i++)
-    Slice_URtoDF_Parity_Prun[i] = -1;
-    int depth = 0;
-    setPruning(Slice_URtoDF_Parity_Prun, 0, (byte) 0);
-    int done = 1;
-    while (done != N_SLICE2 * N_URtoDF * N_PARITY) {
-    for (int i = 0; i < N_SLICE2 * N_URtoDF * N_PARITY; i++) {
-				int parity = i % 2;
-				int URtoDF = (i / 2) / N_SLICE2;
-				int slice = (i / 2) % N_SLICE2;
-				if (getPruning(Slice_URtoDF_Parity_Prun, i) == depth) {
-    for (int j = 0; j < 18; j++) {
-    switch (j) {
-    case 3:
-    case 5:
-    case 6:
-    case 8:
-    case 12:
-    case 14:
-    case 15:
-    case 17:
-    continue;
-    default:
-    int newSlice = FRtoBR_Move[slice][j];
-    int newURtoDF = URtoDF_Move[URtoDF][j];
-    int newParity = parityMove[parity][j];
-    if (getPruning(Slice_URtoDF_Parity_Prun, (N_SLICE2 * newURtoDF + newSlice) * 2 + newParity) == 0x0f) {
-    setPruning(Slice_URtoDF_Parity_Prun, (N_SLICE2 * newURtoDF + newSlice) * 2 + newParity,
-    (byte) (depth + 1));
-    done++;
-    }
-    }
-    }
-				}
-    }
-    depth++;
-    }
-    }
+        lazy var Slice_URtoDF_Parity_Prun = { [unowned self] -> [Int] in
+            let array: [Int] = []
+            
+            for i in 0..<N_SLICE2 * N_URtoDF * N_PARITY / 2 {
+                array[i] = -1
+                var depth = 0
+                setPruning(array, 0, 0)
+                var done = 1
+                
+                while done != N_SLICE2 * N_URtoDF * N_PARITY {
+                    for i in 0..<N_SLICE2 * N_URtoDF * N_PARITY {
+                        var parity: Int = i % 2
+                        var URtoDF: Int = (i / 2) / N_SLICE2
+                        var slice: Int = (i / 2) % N_SLICE2
+                        if (getPruning(array, i) == depth) {
+                            for j in 0..<18 {
+                                switch j {
+                                case 3, 5, 6, 8, 12, 14, 15, 17:
+                                    continue;
+                                default:
+                                    var newSlice: Int = FRtoBR_Move[slice][j]
+                                    var newURtoDF: Int = URtoDF_Move[URFtoDLF][j]
+                                    var newParity: Int = parityMove[parity][j]
+                                    if (getPruning(array, (N_SLICE2 * newURtoDF + newSlice) * 2 + newParity) == 0x0f) {
+                                        setPruning(array, (N_SLICE2 * newURtoDF + newSlice) * 2 + newParity,
+                                                   (depth + 1))
+                                        done += 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    depth += 1
+                }
+            }
+            return array
+    }()
     
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // Pruning table for the twist of the corners and the position (not permutation) of the UD-slice edges in phase1
     // The pruning table entries give a lower estimation for the number of moves to reach the H-subgroup.
-    static byte[] Slice_Twist_Prun = new byte[N_SLICE1 * N_TWIST / 2 + 1];
-    static {
-    for (int i = 0; i < N_SLICE1 * N_TWIST / 2 + 1; i++)
-    Slice_Twist_Prun[i] = -1;
-    int depth = 0;
-    setPruning(Slice_Twist_Prun, 0, (byte) 0);
-    int done = 1;
-    while (done != N_SLICE1 * N_TWIST) {
-    for (int i = 0; i < N_SLICE1 * N_TWIST; i++) {
-				int twist = i / N_SLICE1, slice = i % N_SLICE1;
-				if (getPruning(Slice_Twist_Prun, i) == depth) {
-    for (int j = 0; j < 18; j++) {
-    int newSlice = FRtoBR_Move[slice * 24][j] / 24;
-    int newTwist = twistMove[twist][j];
-    if (getPruning(Slice_Twist_Prun, N_SLICE1 * newTwist + newSlice) == 0x0f) {
-    setPruning(Slice_Twist_Prun, N_SLICE1 * newTwist + newSlice, (byte) (depth + 1));
-    done++;
-    }
-    }
-				}
-    }
-    depth++;
-    }
-    }
+   
+        lazy var Slice_Twist_Prun: [Int] = { [unowned, self] -> in
+        let array: [Int] = []
+        
+        for i in 0..<N_SLICE1 * N_TWIST / 2 + 1 {
+            array[i] = -1
+            var depth: Int = 0
+            setPruning(array, 0, 0)
+            var done: Int = 1
+            
+            while done != N_SLICE1 * N_TWIST {
+                for i in 0..<N_SLICE1 * N_TWIST {
+                    var twist: Int = i / N_SLICE1
+                    var slice: Int = i % N_SLICE1
+                    if (getPruning(array, i) == depth) {
+                        for j in 0..<18 {
+                            var newSlice: Int = FRtoBR_Move[slice * 24][j] / 24
+                            var newTwist: Int = twistMove[twist][j]
+                            if (getPruning(array, N_SLICE1 * newTwist + newSlice) == 0x0f) {
+                                setPruning(array, N_SLICE1 * newTwist + newSlice, (depth + 1))
+                                done += 1
+                            }
+                        }
+                    }
+                }
+                depth += 1
+            }
+        }
+            return array
+    }()
+    
+            
+    
     
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // Pruning table for the flip of the edges and the position (not permutation) of the UD-slice edges in phase1
     // The pruning table entries give a lower estimation for the number of moves to reach the H-subgroup.
-    static byte[] Slice_Flip_Prun = new byte[N_SLICE1 * N_FLIP / 2];
-    static {
-    for (int i = 0; i < N_SLICE1 * N_FLIP / 2; i++)
-    Slice_Flip_Prun[i] = -1;
-    int depth = 0;
-    setPruning(Slice_Flip_Prun, 0, (byte) 0);
-    int done = 1;
-    while (done != N_SLICE1 * N_FLIP) {
-    for (int i = 0; i < N_SLICE1 * N_FLIP; i++) {
-				int flip = i / N_SLICE1, slice = i % N_SLICE1;
-				if (getPruning(Slice_Flip_Prun, i) == depth) {
-    for (int j = 0; j < 18; j++) {
-    int newSlice = FRtoBR_Move[slice * 24][j] / 24;
-    int newFlip = flipMove[flip][j];
-    if (getPruning(Slice_Flip_Prun, N_SLICE1 * newFlip + newSlice) == 0x0f) {
-    setPruning(Slice_Flip_Prun, N_SLICE1 * newFlip + newSlice, (byte) (depth + 1));
-    done++;
-    }
-    }
-				}
-    }
-    depth++;
-    }
-    }
+    
+    lazy var Slice_Flip_Prun: [Int] = { [unowned, self] -> in
+        let array: [Int] = []
+        
+        for i in 0..<N_SLICE1 * N_TWIST / 2 {
+            array[i] = -1
+            var depth: Int = 0
+            setPruning(array, 0, 0)
+            var done: Int = 1
+            
+            while done != N_SLICE1 * N_FLIP {
+                for i in 0..<N_SLICE1 * N_FLIP {
+                    var flip: Int = i / N_SLICE1
+                    var slice: Int = i % N_SLICE1
+                    if (getPruning(array, i) == depth) {
+                        for j in 0..<18 {
+                            var newSlice: Int = FRtoBR_Move[slice * 24][j] / 24
+                            var newFlip: Int = flipMove[flip][j]
+                            if (getPruning(array, N_SLICE1 * newFlip + newSlice) == 0x0f) {
+                                setPruning(array, N_SLICE1 * newFlip + newSlice, (depth + 1))
+                                done += 1
+                            }
+                        }
+                    }
+                }
+                depth += 1
+            }
+        }
+        return array
+    }()
+    
+    
     
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // Set pruning value in table. Two values are stored in one byte.
-    static void setPruning(byte[] table, int index, byte value) {
-    if ((index & 1) == 0)
+    void setPruning(byte[] table, int index, byte value) {
+    if ((index & 1) == 0) {
     table[index / 2] &= 0xf0 | value;
-    else
+    } else {
     table[index / 2] &= 0x0f | (value << 4);
+    }
     }
     
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // Extract pruning value
-    static byte getPruning(byte[] table, int index) {
-    if ((index & 1) == 0)
+    getPruning(byte[] table, int index) {
+    if ((index & 1) == 0) {
     return (byte) (table[index / 2] & 0x0f);
-    else
+    } else {
     return (byte) ((table[index / 2] & 0xf0) >>> 4);
+    }
     }
 }
