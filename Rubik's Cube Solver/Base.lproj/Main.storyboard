@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Umi-oF-vqS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6tI-Wp-j1P">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,60 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Rubik's Solver-->
+        <scene sceneID="jfu-iT-far">
+            <objects>
+                <viewController title="Rubik's Solver" id="6tI-Wp-j1P" customClass="WebViewFixController" customModule="Rubik_s_Cube_Solver" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g0G-cj-AKR"/>
+                        <viewControllerLayoutGuide type="bottom" id="auu-9y-h8B"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JZA-tC-DxT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bJ-rH-vKr">
+                                <rect key="frame" x="0.0" y="71" width="375" height="596"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                            </webView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rubik's Solver" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcZ-s8-PKx">
+                                <rect key="frame" x="16" y="28" width="343" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="e3V-Lt-102"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="24"/>
+                                <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TFG-U3-MK4">
+                                <rect key="frame" x="329" y="71" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="info-button"/>
+                                <connections>
+                                    <segue destination="if3-an-xwN" kind="showDetail" id="WOq-9C-puk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="auu-9y-h8B" firstAttribute="top" secondItem="0bJ-rH-vKr" secondAttribute="bottom" id="9K1-sB-Prg"/>
+                            <constraint firstItem="HcZ-s8-PKx" firstAttribute="top" secondItem="g0G-cj-AKR" secondAttribute="bottom" constant="8" id="DAp-GS-9GB"/>
+                            <constraint firstItem="0bJ-rH-vKr" firstAttribute="leading" secondItem="JZA-tC-DxT" secondAttribute="leading" id="Dwg-lm-O6L"/>
+                            <constraint firstAttribute="trailing" secondItem="0bJ-rH-vKr" secondAttribute="trailing" id="cDS-Nd-EFj"/>
+                            <constraint firstItem="HcZ-s8-PKx" firstAttribute="leading" secondItem="JZA-tC-DxT" secondAttribute="leadingMargin" id="pOM-KU-1Uv"/>
+                            <constraint firstItem="0bJ-rH-vKr" firstAttribute="top" secondItem="HcZ-s8-PKx" secondAttribute="bottom" constant="8" id="qI2-aq-mne"/>
+                            <constraint firstItem="HcZ-s8-PKx" firstAttribute="trailing" secondItem="JZA-tC-DxT" secondAttribute="trailingMargin" id="ryS-dp-rwu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="0bJ-rH-vKr" id="oVJ-uf-aer"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3vZ-vt-lCI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="848.79999999999995" y="-535.68215892053979"/>
+        </scene>
         <!--SolverViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -868,4 +922,7 @@
         <image name="white-square" width="86" height="86"/>
         <image name="yellow-square" width="86" height="86"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="WOq-9C-puk"/>
+    </inferredMetricsTieBreakers>
 </document>

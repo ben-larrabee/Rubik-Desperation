@@ -21,65 +21,67 @@ class CoordCube {
     let N_MOVE = 18;
     
     // All coordinates are 0 for a solved cube except for UBtoDF, which is 114
-    let twist: CShort
-    let flip: CShort
-    let parity: CShort
-    let FRtoBR: CShort
-    let URFtoDLF: CShort
-    let URtoUL: CShort
-    let UBtoDF: CShort
-    let URtoDF: CShort
+    var twist: Int
+    var flip: Int
+    var parity: Int
+    var FRtoBR: Int
+    var URFtoDLF: Int
+    var URtoUL: Int
+    var UBtoDF: Int
+    var URtoDF: Int
     
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // Generate a CoordCube from a CubieCube
-    CoordCube(CubieCube c) {
-    twist = c.twist
-    flip = c.Flip
-    parity = c.cornerParity
-    FRtoBR = c.FRtoBR
-    URFtoDLF = c.URFtoDLF
-    URtoUL = c.URtoUL
-    UBtoDF = c.UBtoDF
-    URtoDF = c.URtoDF// only needed in phase2
+    init(c: CubieCube){
+        twist = c.getTwist()
+        flip = c.getFlip()
+        parity = c.cornerParity()
+        FRtoBR = c.getFRtoBR()
+        URFtoDLF = c.getURFtoDLF()
+        URtoUL = c.getURtoUL()
+        UBtoDF = c.getUBtoDF()
+        URtoDF = c.getURtoDF()// only needed in phase2
     }
+    /*
     
     // A move on the coordinate level
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    void move(int m) {
-    twist = twistMove[twist][m];
-    flip = flipMove[flip][m];
-    parity = parityMove[parity][m];
-    FRtoBR = FRtoBR_Move[FRtoBR][m];
-    URFtoDLF = URFtoDLF_Move[URFtoDLF][m];
-    URtoUL = URtoUL_Move[URtoUL][m];
-    UBtoDF = UBtoDF_Move[UBtoDF][m];
-    if (URtoUL < 336 && UBtoDF < 336)// updated only if UR,UF,UL,UB,DR,DF
-    // are not in UD-slice
-    URtoDF = MergeURtoULandUBtoDF[URtoUL][UBtoDF];
+    func move(m:Int) -> () {
+        twist = twistMove[twist][m];
+        flip = flipMove[flip][m];
+        parity = CoordCube.parityMove[parity][m];
+        FRtoBR = FRtoBR_Move[FRtoBR][m];
+        URFtoDLF = URFtoDLF_Move[URFtoDLF][m];
+        URtoUL = URtoUL_Move[URtoUL][m];
+        UBtoDF = UBtoDF_Move[UBtoDF][m];
+        if (URtoUL < 336 && UBtoDF < 336){// updated only if UR,UF,UL,UB,DR,DF
+        // are not in UD-slice
+        URtoDF = MergeURtoULandUBtoDF[URtoUL][UBtoDF];
+        }
     }
-    
+
     // ******************************************Phase 1 move tables*****************************************************
     
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // Move table for the twists of the corners
     // twist < 2187 in phase 2.
     // twist = 0 in phase 2.
-    lazy var twistMove: [[CShort]] = { [unowned self] in
+    lazy var twistMove: [[Int]] = { [unowned self] in
         
 
         let cubieCube = CubieCube()
-        let array: [[CShort]] = [[]]
+        var array: [[Int]] = [[]]
         
-        for i in 0..<N_TWIST {
-            cubieCube.twist = i
+        for i in 0..<2187 { //N_TWIST
+            cubieCube.setTwist(twist: i)
             
             for j in 0..<6 {
                 for k in 0..<3 {
-                    cubieCube.cornerMultiply(CubieCube.moveCube[j])
-                    array[i][3 * j + k] = cubieCube.twist
+                    cubieCube.cornerMultiply(b: CubieCube.moveCube[j])
+                    array[i][3 * j + k] = cubieCube.getTwist()
                 }
                 
-                cubieCube.cornerMultiply(CubieCube.moveCube[j])
+                cubieCube.cornerMultiply(b: CubieCube.moveCube[j])
             }
         }
  
@@ -94,21 +96,21 @@ class CoordCube {
     // flip < 2048 in phase 1
     // flip = 0 in phase 2.
     
-    lazy var filpMove: [[CShort]] = { [unowned self] in
+    lazy var flipMove: [[Int]] = { [unowned self] in
     
     let cubieCube = CubieCube()
-    let array: [[CShort]] = [[]]
+    var array: [[Int]] = [[]]
 
-    for i in 0..<N_FLIP {
-        cubieCube.setFlip = i
+    for i in 0..<2048 {//N_FLIP
+        cubieCube.setFlip(flip: &i)
     
         for j in 0..<6 {
             for k in 0..<3 {
-                cubieCube.edgeMultiply(CubieCube.moveCube[j])
+                cubieCube.edgeMultiply(b: CubieCube.moveCube[j])
                 array[i][3 * j + k] = cubieCube.getFlip()
             }
     
-            cubieCube.edgeMultiply(CubieCube.moveCube[j])
+            cubieCube.edgeMultiply(b: CubieCube.moveCube[j])
         }
     }
         
@@ -132,12 +134,12 @@ class CoordCube {
     // FRtoBRMove < 11880 in phase 1
     // FRtoBRMove < 24 in phase 2
     // FRtoBRMove = 0 for solved cube
-    lazy var FRtoBR_Move: [[CShort]] = { [unowned self] in
+    lazy var FRtoBR_Move: [[Int]] = { [unowned self] in
         
     let cubieCube = CubieCube()
-    let array: [[CShort]] = [[]]
+    let array: [[Int]] = [[]]
         
-        for i in 0..<N_FRtoBR {
+        for i in 0..<11880 {//N_FRtoBR
             cubieCube.setFRtoBR = i
             
             for j in 0..<6 {
@@ -165,10 +167,10 @@ class CoordCube {
     // URFtoDLF < 20160 in phase 2
     // URFtoDLF = 0 for solved cube.
     
-    lazy var URFtoDLF_Move: [[CShort]] = { [unowned self] in
+    lazy var URFtoDLF_Move: [[Int]] = { [unowned self] in
         
     let cubieCube = CubieCube()
-    let array: [[CShort]] = [[]]
+    let array: [[Int]] = [[]]
         
         for i in 0..<N_URFtoDLF {
             cubieCube.setURFtoDLF = i
@@ -195,10 +197,10 @@ class CoordCube {
     // URtoDF = 0 for solved cube.
     
     
-    lazy var URtoDF_Move: [[CShort]] = { [unowned self] in
+    lazy var URtoDF_Move: [[Int]] = { [unowned self] in
         
         let cubieCube = CubieCube()
-        let array: [[CShort]] = [[]]
+        let array: [[Int]] = [[]]
         
         for i in 0..<N_URtoDF {
             cubieCube.setURtoDF = i
@@ -220,10 +222,10 @@ class CoordCube {
     
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     
-    lazy var URtoUL_Move: [[CShort]] = { [unowned self] in
+    lazy var URtoUL_Move: [[Int]] = { [unowned self] in
         
         let cubieCube = CubieCube()
-        let array: [[CShort]] = [[]]
+        let array: [[Int]] = [[]]
         
         for i in 0..<N_URtoUL {
             cubieCube.setURtoUL = i
@@ -243,10 +245,10 @@ class CoordCube {
     
     // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     
-    lazy var UBtoDF_Move: [[CShort]] = { [unowned self] in
+    lazy var UBtoDF_Move: [[Int]] = { [unowned self] in
         
         let cubieCube = CubieCube()
-        let array: [[CShort]] = [[]]
+        let array: [[Int]] = [[]]
         
         for i in 0..<N_UBtoDF {
             cubieCube.setUBtoDF = i
@@ -270,8 +272,8 @@ class CoordCube {
     // Table to merge the coordinates of the UR,UF,UL and UB,DR,DF edges at the beginning of phase2
 
     
-    lazy var MergeURtoULandUBtoDF: [[CShort]] = { [unowned self] in
-    let array: [[CShort]] = [[]]
+    lazy var MergeURtoULandUBtoDF: [[Int]] = { [unowned self] in
+    let array: [[Int]] = [[]]
         
         for uRtoUL in 0..<336 {
             for uBtoDF in 0..<336 {
@@ -470,4 +472,5 @@ class CoordCube {
     return (byte) ((table[index / 2] & 0xf0) >>> 4);
     }
     }
+ */
 }

@@ -17,6 +17,8 @@
 		B98F25A91DDE1F1100BCC4B2 /* SolutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98F25A81DDE1F1100BCC4B2 /* SolutionViewController.swift */; };
 		B98F25AD1DE36F7000BCC4B2 /* CoordCube.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98F25AC1DE36F7000BCC4B2 /* CoordCube.swift */; };
 		B98F25AF1DE395FE00BCC4B2 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98F25AE1DE395FE00BCC4B2 /* Tools.swift */; };
+		C76745091DEBE24C00F7DB24 /* CubieCube.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76745081DEBE24C00F7DB24 /* CubieCube.swift */; };
+		C76745291DEC64EA00F7DB24 /* WebViewFixController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76745281DEC64EA00F7DB24 /* WebViewFixController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		B98F25A81DDE1F1100BCC4B2 /* SolutionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SolutionViewController.swift; path = "View Controllers/SolutionViewController.swift"; sourceTree = "<group>"; };
 		B98F25AC1DE36F7000BCC4B2 /* CoordCube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordCube.swift; sourceTree = "<group>"; };
 		B98F25AE1DE395FE00BCC4B2 /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		C76745081DEBE24C00F7DB24 /* CubieCube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubieCube.swift; sourceTree = "<group>"; };
+		C76745281DEC64EA00F7DB24 /* WebViewFixController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebViewFixController.swift; path = "View Controllers/WebViewFixController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 				B98F259B1DDB8D5800BCC4B2 /* Info.plist */,
 				B98F25A41DDCBFB600BCC4B2 /* Buttons.swift */,
 				B98F25AC1DE36F7000BCC4B2 /* CoordCube.swift */,
+				C76745081DEBE24C00F7DB24 /* CubieCube.swift */,
 				B98F25AE1DE395FE00BCC4B2 /* Tools.swift */,
 			);
 			path = "Rubik's Cube Solver";
@@ -83,6 +88,7 @@
 				B98F25A21DDCAE6B00BCC4B2 /* SolverViewController.swift */,
 				B98F25A61DDE1C0E00BCC4B2 /* HelpViewController.swift */,
 				B98F25A81DDE1F1100BCC4B2 /* SolutionViewController.swift */,
+				C76745281DEC64EA00F7DB24 /* WebViewFixController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -160,8 +166,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B98F25AD1DE36F7000BCC4B2 /* CoordCube.swift in Sources */,
+				C76745091DEBE24C00F7DB24 /* CubieCube.swift in Sources */,
 				B98F25A51DDCBFB600BCC4B2 /* Buttons.swift in Sources */,
 				B98F25901DDB8D5800BCC4B2 /* AppDelegate.swift in Sources */,
+				C76745291DEC64EA00F7DB24 /* WebViewFixController.swift in Sources */,
 				B98F25A31DDCAE6B00BCC4B2 /* SolverViewController.swift in Sources */,
 				B98F25AF1DE395FE00BCC4B2 /* Tools.swift in Sources */,
 				B98F25A71DDE1C0E00BCC4B2 /* HelpViewController.swift in Sources */,
@@ -327,6 +335,7 @@
 				B98F25A01DDB8D5800BCC4B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

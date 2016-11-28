@@ -26,6 +26,7 @@ public class Tools {
      *         -5: Twist error: One corner has to be twisted<br>
      *         -6: Parity error: Two corners or two edges have to be exchanged
      */
+    /*
     func verify(s:String) -> Int {
         var count: [Int] = [6]
     do {
@@ -48,11 +49,13 @@ public class Tools {
     return cc.verify();
     }
     }
-    
+    */
     /**
      * Generates a random cube.
      * @return A random cube in the string representation. Each cube of the cube space has the same probability.
      */
+    
+    /*
     public static String randomCube() {
     CubieCube cc = new CubieCube();
     Random gen = new Random();
@@ -65,4 +68,5 @@ public class Tools {
     FaceCube fc = cc.toFaceCube();
     return fc.to_String();
     }
+*/
 }
